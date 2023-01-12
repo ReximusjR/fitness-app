@@ -21,16 +21,19 @@ export class SchedulerService {
     console.info(
       `sending payload to notifications service for session: ${session.title}`,
     );
-    const notificationResponse = await ApiWrapper.post<NotificationPayload>(
-      this.notificationURL,
-      notificationsPayload,
-    );
 
-    if (notificationResponse.status !== HttpStatus.OK) {
-      // call to sendGrid failed, log here
-      console.info(`notifications call failed for session: ${session.id}`);
-      return false;
-    }
+    // below commented block is to demonstrate us calling send grid/etc with our reminder payload, which doesn't exist
+
+    // const notificationResponse = await ApiWrapper.post<NotificationPayload>(
+    //   this.notificationURL,
+    //   notificationsPayload,
+    // );
+
+    // if (notificationResponse.status !== HttpStatus.OK) {
+    //   // call to sendGrid failed, log here
+    //   console.info(`notifications call failed for session: ${session.id}`);
+    //   return false;
+    // }
     console.info(`notifications call succeeded for session: ${session.id}`);
     return true;
   }
