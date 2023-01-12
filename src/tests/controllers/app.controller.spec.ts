@@ -1,7 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { AppController } from '../app.controller';
-import { AppService } from '../app.service';
+import { AppController } from '../../app.controller';
+import { AppService } from '../../app.service';
 
+// We can ignore this, or just treat it like a "health check to the api"
 describe('AppController', () => {
   let appController: AppController;
 

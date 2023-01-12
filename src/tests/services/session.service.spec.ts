@@ -1,14 +1,14 @@
-import { HttpStatus } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
-import { SessionService } from '../session.service';
-import { fakeWorkoutSession } from './testData';
+import { SchedulerService } from '../../scheduler.service';
+import { SessionService } from '../../session.service';
+import { fakeWorkoutSession } from '../testData';
 
-describe('SessionController', () => {
+describe('SessionService', () => {
   let sessionService: SessionService;
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
-      providers: [SessionService],
+      providers: [SessionService, SchedulerService],
     }).compile();
 
     sessionService = app.get(SessionService);

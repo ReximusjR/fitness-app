@@ -11,7 +11,7 @@ export class SessionController {
   @Post()
   async createWorkoutSession(
     @Body() createSessionBody: WorkoutSession,
-  ): Promise<ApiStandardResponse<WorkoutSession>> {
+  ): Promise<ApiStandardResponse> {
     // in a production scenario, we'd replace console log below with an actual log to new relic/etc.
     console.log(`Entered createWorkoutSession ${createSessionBody.title}`);
     const createdSession = await this.sessionService.createWorkoutSession(
@@ -22,12 +22,12 @@ export class SessionController {
     return { status: HttpStatus.CREATED, body: createdSession };
   }
 
-  @Get()
+  @Get(':id')
   async getWorkoutSessionById(
-    @Param() sessionId: string,
-  ): Promise<ApiStandardResponse<WorkoutSession | string>> {
+    @Param('id') sessionId: string,
+  ): Promise<ApiStandardResponse> {
     // in a production scenario, we'd replace console log below with an actual log to new relic/etc.
-    console.log(`Entered getWorkoutSessionById ${sessionId}`);
+    console.log(`Entered getWorkoutSessionById ${JSON.stringify(sessionId)}`);
     const session = await this.sessionService.getWorkoutSessionById(+sessionId);
     if (session) {
       console.log(`Retrieved session: ${sessionId}`);

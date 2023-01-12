@@ -9,6 +9,6 @@ export interface WorkoutSession {
   startTime: Date;
   duration: number;
   frequency: CadenceEnum;
-  reminders: number[]; // list of numbers, which represent how many minutes before the startTime to fire notification
+  reminders: Date[]; // list of dates, which represent when to the fire notification(s)
   notes: string;
 }

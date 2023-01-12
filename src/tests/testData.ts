@@ -20,6 +20,6 @@ export const fakeWorkoutSession: WorkoutSession = {
   startTime: new Date(),
   duration: 5000,
   frequency: CadenceEnum.Monthly,
-  reminders: [60, 30],
+  reminders: [new Date('2023-01-09T01:23:00')],
   notes: 'this is an awesome workout',
 };

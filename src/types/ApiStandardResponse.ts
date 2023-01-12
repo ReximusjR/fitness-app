@@ -1,6 +1,6 @@
 import { HttpStatus } from '@nestjs/common';
 
-export interface ApiStandardResponse<T> {
-  body: T;
+export interface ApiStandardResponse {
+  body: any;
   status: HttpStatus;
 }

@@ -1,10 +1,9 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { SessionController } from '../session.controller';
-import { AppService } from '../app.service';
-import { WorkoutSession } from 'src/types';
-import { fakeWorkoutSession } from './testData';
 import { HttpStatus } from '@nestjs/common';
-import { SessionService } from '../session.service';
+import { Test, TestingModule } from '@nestjs/testing';
+import { SchedulerService } from '../../scheduler.service';
+import { SessionController } from '../../session.controller';
+import { SessionService } from '../../session.service';
+import { fakeWorkoutSession } from '../testData';
 
 describe('SessionController', () => {
   let sessionController: SessionController;
@@ -13,13 +12,11 @@ describe('SessionController', () => {
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
       controllers: [SessionController],
-      providers: [SessionService],
+      providers: [SessionService, SchedulerService],
     }).compile();
 
     sessionController = app.get<SessionController>(SessionController);
     sessionService = app.get(SessionService);
-    // sessionService = new SessionService();
-    // catsController = new CatsController(catsService);
   });
 
   describe('createWorkoutSession', () => {

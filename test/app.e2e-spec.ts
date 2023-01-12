@@ -3,6 +3,7 @@ import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from './../src/app.module';
 
+// This is just generated from the nestjs setup - we could add e2e tests to supplement unit tests
 describe('AppController (e2e)', () => {
   let app: INestApplication;
 

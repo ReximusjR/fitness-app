@@ -58,6 +58,31 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+to manually hit the endpoints with Postman:
+
+1. make sure app is running and hit POST to http://localhost:3000/sessions
+2. use post body:
+   {
+   "id": 1,
+   "userId": 12,
+   "title": "yay-title",
+   "routine": {
+   "title": "xyz-title"
+   },
+   "startTime": "Date",
+   "duration": 5,
+   "frequency": "DAILY",
+   "reminders": 6,
+   "notes": "notes-here"
+   }
+
+   then hit the GET http://localhost:3000/sessions/1 to retrieve that "created" session
+
+## Important Functionality Not Covered In the Assignment
+
+1. Proper Logging to New Relic/etc with a Winston Logger/etc
+2. gitlab-ci.yml file to orchestrate our CI/CD (deploy to test\staging\prod)
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
